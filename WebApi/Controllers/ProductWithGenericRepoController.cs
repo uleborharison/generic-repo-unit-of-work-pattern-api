@@ -43,7 +43,7 @@ namespace WebApi.Controllers
                 Price = product.Price
             };
             var createdProduct = await _productRepository.CreateAsync(newProduct);
-            return CreatedAtAction(nameof(GetByIdAsync), new { id = createdProduct.ProductId }, createdProduct);
+            return CreatedAtAction(nameof(Get), new { id = createdProduct.ProductId }, createdProduct);
         }
 
         [HttpPut]
@@ -72,4 +72,5 @@ namespace WebApi.Controllers
             await _productRepository.DeleteAsync(existingProduct);
             return NoContent();
         }
+    }
 }
